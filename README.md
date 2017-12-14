@@ -1,5 +1,8 @@
+##############################################################################################################
+#####This is my first playbook/role using Ansible, please consider this if you try to execute this code.######
+##############################################################################################################
 
-Use install-start-xmr-cpu.yml to clone the git repo of cpu-minermulti, compile and start it
+Use install-start-xmr-cpu.yml to clone the git repo of cpu-minermulti, compile and start it.(Not working right now)
 
 start-xmr-cpu.yml
 Should be used to start the miner on your hosts.
