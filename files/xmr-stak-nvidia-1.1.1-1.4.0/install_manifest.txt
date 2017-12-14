@@ -1,0 +1,1 @@
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/bin/config.txt

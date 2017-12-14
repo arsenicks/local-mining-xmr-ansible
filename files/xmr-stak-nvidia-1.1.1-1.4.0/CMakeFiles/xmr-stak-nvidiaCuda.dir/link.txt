@@ -1,0 +1,2 @@
+/usr/bin/ar qc libxmr-stak-nvidiaCuda.a  CMakeFiles/xmr-stak-nvidiaCuda.dir/nvcc_code/xmr-stak-nvidiaCuda_generated_cuda_core.cu.o CMakeFiles/xmr-stak-nvidiaCuda.dir/nvcc_code/xmr-stak-nvidiaCuda_generated_cuda_extra.cu.o
+/usr/bin/ranlib libxmr-stak-nvidiaCuda.a

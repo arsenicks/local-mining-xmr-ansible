@@ -1,0 +1,80 @@
+---
+# tasks file for xmr-cpu
+   - name: Creates directories
+ 	file:
+    		path: /ansible-mining/CPU
+		state: directory
+		owner: root 
+		group: root
+		mode: 0775
+		recurse: yes
+        file: path=/ansible-mining/NVIDIA state=directory
+
+   - name: install the latest deps
+ 	yum:
+    	name: git curl-devel,libcurl,glib-devel,libtool
+    	state: latest 
+
+
+   - name: Clone git cpu-minermulti
+	git:
+    	repo: https://github.com/hyc/cpuminer-multi
+	dest: /ansible-mining/CPU/
+
+
+   - name: autogen xmr-cpu
+  	command: ./autogen.sh
+  	args:
+    	chdir: "/ansible-mining/CPU/cpuminer-multi/"
+   - name: configure xmr-cpu
+  	command: CFLAGS="-march=native" ./configure
+  	args:
+    	chdir: "/ansible-mining/CPU/cpuminer-multi/"
+   - name: make
+  	command: make
+  	args:
+    	chdir: "/ansible-mining/CPU/cpuminer-multi/"
+   - name: Processor count
+	shell: grep -c processor /proc/cpuinfo
+    	register: processor_count
+	tags: processor_count
+   - name: run xmr-cpu
+        command: ./minerd -S -B -a cryptonight -o stratum+tcp://pool.minexmr.com:7777 -u {{ xmr_wallet }}.{{ ansible_nodename }} -p x -t {{ processor_count }}
+        args:
+        chdir: "/ansible-mining/CPU/cpuminer-multi/"
+
+
+#Why script ? let's try with command
+#   - name: Add startup script
+#  	register: sfhconfig
+#  	template:
+#    	src: xmr-cpu-mining.sh.j2
+#    	dest: '/ansible-mining/xmr-cpu-mining.sh' 
+#    	owner: root
+#    	group: root
+
+#Pour GPU config file
+#   - copy:
+ 	src: /srv/myfiles/foo.conf
+    	dest: /etc/foo.conf
+    	owner: foo
+    	group: foo
+    	mode: 0644
+
+
+#####
+
+pour rc.local
+todo: chmod +x /etc/rc.d/rc.local
+
+echo... su root -c '/home/arsenick/monero-mining.sh'
+
+
+
+#yum  yum -y install git curl-devel libcurl glib-devel libtool
+#239  cd cpuminer-multi
+#  240  ./autogen.sh
+#  241  CFLAGS="-march=native" ./configure
+#  242  make
+
+

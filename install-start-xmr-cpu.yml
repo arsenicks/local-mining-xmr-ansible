@@ -1,0 +1,5 @@
+- hosts: xmr-cpu
+  become: yes
+  become_user: root
+  roles:
+   - xmr-cpu

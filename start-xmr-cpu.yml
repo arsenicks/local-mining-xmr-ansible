@@ -1,0 +1,21 @@
+- hosts: xmr-cpu
+  become: yes
+  become_user: root
+  vars:
+   xmr_wallet: 43heem5zqzpQgLUuGBgcprNhHcZC21dJJWNkPRMG27oETweRgy2jBcxUp6XswY5SouRb8MKpwSaSq3sKuLajpPJyLmmA21G
+  tasks:
+   - name: Kill xmr-cpu
+     shell: kill $(ps -ef | grep -v grep | grep -w minerd | awk '{print $2}')
+     ignore_errors: yes
+   - name: Processor count
+     shell: grep -c processor /proc/cpuinfo
+     register: processor_count
+     tags: processor_count
+   - name: Get hostname
+     command: hostname -s
+     register: short_host 
+   - name: run xmr-cpu
+     command: /root/cpuminer-multi/minerd -S -B -a cryptonight -o stratum+tcp://pool.minexmr.com:7777 -u {{ xmr_wallet }}.{{ short_host.stdout }} -p x -t {{ processor_count.stdout }}
+     args:
+     chdir: "/root/cpuminer-multi/"
+

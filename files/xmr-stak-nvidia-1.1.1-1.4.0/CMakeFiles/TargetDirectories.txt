@@ -1,0 +1,9 @@
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/edit_cache.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/rebuild_cache.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/xmr-stak-nvidiaCuda.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/xmr-stak-nvidiaCrypto.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/install.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/list_install_components.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/xmr-stak-nvidia.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/install/local.dir
+/home/arsenick/xmr-stak-nvidia-1.1.1-1.4.0/CMakeFiles/install/strip.dir

@@ -1,0 +1,20 @@
+---
+# handlers file for xmr-cpu
+#- name: Start xmr-cpu
+#  script: files/xmr-cpu-mining.sh
+#  args:
+#    creates: /ansible-mining/CPU/xmr-cpu-mining.sh
+- name: run xmr-cpu
+        command: ./minerd -S -B -a cryptonight -o stratum+tcp://pool.minexmr.com:7777 -u {{ xmr_wallet }}.{{ ansible_nodename }} -p x -t {{ processor_count }}
+        args:
+        chdir: "/ansible-mining/CPU/cpuminer-multi/"
+
+- name: Kill xmr-cpu
+  	shell: kill $(ps -ef | grep -v grep | grep -w minerd | awk '{print $2}')
+
+
+#- name: Stop xmr-cpu
+#  script: files/killall-xmr-cpu.sh
+#  args:
+#  creates: /ansible-mining/CPU/killall-xmr-cpu.sh
+

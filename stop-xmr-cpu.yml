@@ -1,0 +1,8 @@
+---
+- hosts: xmr-cpu
+  become: yes
+  become_user: root
+  tasks:
+   - name: Kill xmr-cpu
+     shell: kill $(ps -ef | grep -v grep | grep -w minerd | awk '{print $2}')
+...

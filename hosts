@@ -1,0 +1,12 @@
+[xmr-cpu]
+192.168.8.32
+[xmr-cpu-tmp]
+192.168.8.31
+192.168.8.32
+192.168.8.33
+192.168.8.34
+[xmr-gpu]
+192.168.8.69
+[all:vars]
+ansible_connection=ssh 
+ansible_ssh_user=root
