@@ -1,3 +1,18 @@
+
+
+**_ This project hasn't been completed and the code isn't complete. I'll archive this project. _**
+#
+#
+#
+#
+#
+#
+#
+#
+####################################
+
+
+
 **_This is my first playbook/role using Ansible, please consider this if you try to execute this code._**
 
 # Roles
